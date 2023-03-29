@@ -1,30 +1,31 @@
 <div class="formContainer">
   <h1 class="primaryHeading">GvDev User Registration</h1>
-  <form class="primaryForm">
+  <form class="primaryForm" #login="ngForm" (ngSubmit)="submit(login)">
     <div class="formGroup">
       <label for="firstName">First Name:</label>
       <br>
-      <input type="text" name="firstName" class="formControl">
+      <input #name="ngModel" required minLength="2" maxLength="9" type="text" name="firstName" class="formControl" ngModel>
+      <p *ngIf="name.touched && name.invalid" class="alert alert-danger">First Name is required</p>
     </div>
     <pre></pre>
     <div class="formGroup">
       <label for="lastName">Last Name:</label>
       <br>
-      <input type="text" name="lastName" class="formControl">
+      <input required minlength="2" maxLength="12" type="text" name="lastName" class="formControl" ngModel>
     </div>
     <pre></pre>
     <div class="formGroup">
       <label for="email">Email:</label>
       <br>
-      <input type="text" name="email" class="formControl">
+      <input type="text" name="email" class="formControl" ngModel>
     </div>
     <pre></pre>
     <div class="formGroup">
       <label for="password">Password:</label>
       <br>
-      <input type="text" name="password" class="formControl">
+      <input type="text" name="password" class="formControl" ngModel>
     </div>
     <br>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

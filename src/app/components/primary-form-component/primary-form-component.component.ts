@@ -12,4 +12,8 @@ export class PrimaryFormComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit(login){
+    console.log("Form submitted", login);
+  }
+
 }
